@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 namespace grep
 {
 	class Input
-    {
+	{
 		int line;
 		public string stdin(string stdin = null)
 		{
@@ -35,7 +35,7 @@ namespace grep
 							catch (ThreadAbortException)
 							{
 								Console.ForegroundColor = ConsoleColor.Red;
-                                ErrorMsg("An error occurred in line " + line);
+								ErrorMsg("An error occurred in line " + line);
 								Console.ResetColor();
 								Thread.ResetAbort();
 							}
@@ -77,7 +77,7 @@ namespace grep
 			}
 			catch (UnauthorizedAccessException)
 			{
-                ErrorMsg("[ERROR] Access to files could not be granted");
+				ErrorMsg("[ERROR] Access to files could not be granted");
 				return null;
 			}
 			catch (Exception)
@@ -101,15 +101,15 @@ namespace grep
 			return (string[]) filepaths.ToArray(typeof(string));
 		}
 
-        private void ErrorMsg(String s, bool linebreak = false)
-        {
-            Console.ForegroundColor = ConsoleColor.Red;
-            if (linebreak)
-                Console.WriteLine(s);
-            else
-                Console.Write(s);
-            Console.ResetColor();
-            System.Environment.Exit(2);
-        }
-    }
+		private void ErrorMsg(String s, bool linebreak = false)
+		{
+			Console.ForegroundColor = ConsoleColor.Red;
+			if (linebreak)
+				Console.WriteLine(s);
+			else
+				Console.Write(s);
+			Console.ResetColor();
+			System.Environment.Exit(2);
+		}
+	}
 }

@@ -7,29 +7,29 @@ namespace grep
 
 		static int Main(string[] args)
 		{
-            CommandLineArgs cmd = new CommandLineArgs();
-            string[] data = null;
-            string[] filePaths = null;
+			CommandLineArgs cmd = new CommandLineArgs();
+			string[] data = null;
+			string[] filePaths = null;
 
-            if (args.Length == 0)
+			if (args.Length == 0)
 			{
 				ErrorMsg("[ERROR] Unable to identify parameters. Use --help to find more parameters.");
 			}
 			if(!CommandLine.Parser.Default.ParseArguments(args, cmd))
 			{
-                // HELP MENU OR ERROR
-                return 1;
+				// HELP MENU OR ERROR
+				return 1;
 			}
 
 			Input getData = new Input();
 
-            // CHECK IF THE FILE PARAMETER EXISTS
+			// CHECK IF THE FILE PARAMETER EXISTS
 			if (cmd.FILE == null)
 			{
-                // GETTING CONSOLE INPUT
-                string temp = getData.stdin();
-                if(temp != null)
-                data = new string[] { temp };
+				// GETTING CONSOLE INPUT
+				string temp = getData.stdin();
+				if(temp != null)
+				data = new string[] { temp };
 			}
 			else
 			{
@@ -49,13 +49,13 @@ namespace grep
 			}
 			
 			if (cmd.word == null)
-            {
-                cmd.word = args[0];
+			{
+				cmd.word = args[0];
 			}
-            Find result = new Find(data, ref filePaths, cmd);
+			Find result = new Find(data, ref filePaths, cmd);
 
-            //Console.Write($"\n==== Results: {SearchInstance.TotaltHits} hits in {result.FileHitCounter} =====");
-            return 0;
+			//Console.Write($"\n==== Results: {SearchInstance.TotaltHits} hits in {result.FileHitCounter} =====");
+			return 0;
 		}
 
 		static private void ErrorMsg(String s, bool linebreak = false)
@@ -66,8 +66,8 @@ namespace grep
 			else
 				Console.Write(s);
 			Console.ResetColor();
-            System.Environment.Exit(2);
-        }
+			System.Environment.Exit(2);
+		}
 
 
 

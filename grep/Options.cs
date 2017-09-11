@@ -5,7 +5,7 @@ using System;
 namespace grep
 {
 	public class CommandLineArgs
-	{  
+	{
 		[Option('L', "SHOWLINES", HelpText = "Displays lines")]
 		public bool SHOWLINES { get; set; }
 
